@@ -2,23 +2,55 @@
 <html>
 <head>
   <title>PDF PTC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f4f6;
+    }
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbxFCOWQL9R_kNg06K37ZsGgYBlMcxn7ORG0f4b6SfhY1-er4VdeFBkqkA29eq4zfOY/exec"
-    width="100%"
-    height="100%"
-    allowfullscreen="true"
-    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none;">
-  </iframe>
+  <div class="container">
+    <h1 class="text-3xl font-bold mb-6">📄 PDF PTC</h1>
+    <p class="mb-4 text-gray-700">
+      หน้าเว็บนี้ใช้สำหรับจัดการและสร้าง PDF จาก Google Sheets คลิกปุ่มด้านล่างเพื่อเข้าสู่ระบบ
+    </p>
+    <a 
+      href="https://script.google.com/macros/s/AKfycbxFCOWQL9R_kNg06K37ZsGgYBlMcxn7ORG0f4b6SfhY1-er4VdeFBkqkA29eq4zfOY/exec" 
+      target="_blank" 
+      class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      เปิด PDF Generator Web App
+    </a>
+    <p class="mt-4 text-sm text-gray-500">
+      หมายเหตุ: การคัดลอกลิงก์ PDF อาจไม่ทำงานในบางเบราว์เซอร์หากโหลดผ่าน iframe กรุณาเปิดหน้าเว็บโดยตรงเพื่อใช้งานเต็มรูปแบบ
+    </p>
+  </div>
 
   <script>
+    // แจ้งเตือนเมื่อโหลดหน้า
     window.onload = function() {
-      document.querySelector('iframe')
-        .requestFullscreen()
-        .catch((err) => {
-          console.error('Error attempting to enable full-screen mode:', err.message);
-        });
+      Swal.fire({
+        icon: 'info',
+        title: 'ยินดีต้อนรับสู่ PDF PTC',
+        text: 'คลิกปุ่ม "เปิด PDF Generator Web App" เพื่อเริ่มใช้งาน การคัดลอกลิงก์ PDF ต้องใช้หน้าเว็บโดยตรงเพื่อหลีกเลี่ยงข้อจำกัดด้านความปลอดภัย',
+        confirmButtonText: 'ตกลง',
+        timer: 5000,
+        timerProgressBar: true
+      });
     };
   </script>
 </body>
